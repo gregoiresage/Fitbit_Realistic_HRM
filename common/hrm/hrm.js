@@ -107,11 +107,11 @@ export function initialize() {
   }
 
   //react on display on/off
-  display.onchange = function() {
+  display.addEventListener("change", (event) => {
     if (display.on) {
       startHRMeasurements();
     } else {
       stopHRMeasurements();
     }
-  }
+  });
 }
