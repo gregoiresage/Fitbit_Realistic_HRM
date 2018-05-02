@@ -1,3 +1,3 @@
-import * as hrm from "hrm";
+import * as hrm from "../common/hrm/hrm";
 
-hrm.initialize();
+hrm.initialize("hrmSymbol");

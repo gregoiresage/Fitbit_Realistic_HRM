@@ -3,10 +3,9 @@ import { HeartRateSensor } from "heart-rate";
 import { display } from "display";
 import { me } from "appbit";
 
-
-var hrImage = document.getElementById("hrImage");
-var hrIcon = document.getElementById("hrIcon");
-var hrText = document.getElementById("hrText");
+var hrImage  = undefined;
+var hrIcon   = undefined;
+var hrText   = undefined;
 
 var hrm = null;
 var lastMeasuredHR = 0;
@@ -96,7 +95,12 @@ function stopHRMeasurements() {
   }
 }
 
-export function initialize() {
+export function initialize(symbol_id) {
+  var hrSymbol = document.getElementById(symbol_id);
+  hrImage = hrSymbol.getElementById("hrImage");
+  hrIcon  = hrSymbol.getElementById("hrIcon");
+  hrText  = hrSymbol.getElementById("hrText");
+  
   hrText.text = '--';
   if (me.permissions.granted("access_heart_rate")) {
     hrm = new HeartRateSensor();
